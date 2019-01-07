@@ -1,54 +1,31 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import * as d3 from "d3";
+
 
 import { select } from 'd3-selection'
 
 
-class App extends Component {
+const data = [
+  {width: 200, height: 100, fill: 'purple'},
+  {width: 100, height: 60, fill: 'pink'},
+  {width: 50, height: 30, fill: 'red'}
+];
 
+class App extends Component {
 
   componentDidMount(){
 
     const node = this.node;
 
-    select(node)
-    .attr('width', 600)
-    .attr('height', 600);
+    const svg = d3.select(node);
 
-    const group = select(node)
-    .append('g')
-    .attr('transform', 'translate(0, 100)');
-
-    group.append('rect')
-    .attr('width', 200)
-    .attr('height', 100)
-    .attr('fill', 'blue')
-    .attr('x', 20)
-    .attr('y', 20);
+    const rects = svg.selectAll('rect')
+    .data(data)
+    .attr('width', d => d.width)
+    .attr('height', d => d.height)
+    .attr('fill', d => d.fill);
   
-  group.append('circle')
-    .attr('r', 50)
-    .attr('cx', 300)
-    .attr('cy', 70)
-    .attr('fill', 'pink');
-  
-  group.append('line')
-    .attr('x1', 370)
-    .attr('x2', 400)
-    .attr('y1', 20)
-    .attr('y2', 120)
-    .attr('stroke', 'red');
-
-
-  select(node)
-  .append('text')
-    .attr('x', 20)
-    .attr('y', 200)
-    .attr('fill', 'grey')
-    .text('hello, devs')
-    .style('font-family', 'arial')
-    .attr('transform', 'translate(0, -100)');
-
   }
 
   render() {
@@ -58,7 +35,11 @@ class App extends Component {
             <h2 class="center white-text">D3 Example 2</h2>
             <p class="flow-text grey-text center text-lighten-2"></p>
        </header>
-       <svg ref={node => this.node = node}/>
+       <svg ref={node => this.node = node}>
+          <rect></rect>
+          <rect></rect>
+          <rect></rect>
+       </svg>
       </div>
     );
   }
