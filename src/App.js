@@ -22,10 +22,17 @@ class App extends Component {
 
     const rects = svg.selectAll('rect')
     .data(data)
+
+    rects.attr('width', d => d.width)
+  .attr('height', d => d.height)
+  .attr('fill', d => d.fill);
+
+  const added = rects.enter()
+  .append('rect')
     .attr('width', d => d.width)
     .attr('height', d => d.height)
     .attr('fill', d => d.fill);
-  
+
   }
 
   render() {
@@ -35,11 +42,7 @@ class App extends Component {
             <h2 class="center white-text">D3 Example 2</h2>
             <p class="flow-text grey-text center text-lighten-2"></p>
        </header>
-       <svg ref={node => this.node = node}>
-          <rect></rect>
-          <rect></rect>
-          <rect></rect>
-       </svg>
+       <svg ref={node => this.node = node}/>
       </div>
     );
   }
