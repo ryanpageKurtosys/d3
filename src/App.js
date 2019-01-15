@@ -26,6 +26,9 @@ class App extends Component {
     .attr('height', d => d.height)
     .attr('fill', d => d.fill)
     .attr('testing', (d,i,n) => {
+      //where d is refers to the data parameter 
+      //where i is refers to the position that the current array element is in
+      //where n is an array of the dom elements
       console.log("-------------d,i,n-------------")
       console.log(d)
       console.log(i)
