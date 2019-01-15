@@ -24,16 +24,21 @@ class App extends Component {
     .data(data)
     .attr('width', d => d.width)
     .attr('height', d => d.height)
-    .attr('fill', d => d.fill);
-  
+    .attr('fill', d => d.fill)
+    .attr('testing', (d,i,n) => {
+      console.log("-------------d,i,n-------------")
+      console.log(d)
+      console.log(i)
+      console.log(n)
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <header class="pink darken-1 section">
-            <h2 class="center white-text">D3 Example 2</h2>
-            <p class="flow-text grey-text center text-lighten-2"></p>
+        <header className="pink darken-1 section">
+            <h2 className="center white-text">D3 Example 2</h2>
+            <p className="flow-text grey-text center text-lighten-2"></p>
        </header>
        <svg ref={node => this.node = node}>
           <rect></rect>
