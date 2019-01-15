@@ -44,9 +44,11 @@ class App extends Component {
             <p className="flow-text grey-text center text-lighten-2"></p>
        </header>
        <svg ref={node => this.node = node}>
+       {/*this is not practical*/}
           <rect></rect>
           <rect></rect>
           <rect></rect>
+       {/*this is not practical*/}
        </svg>
       </div>
     );
