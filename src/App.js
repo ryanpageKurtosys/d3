@@ -7,9 +7,11 @@ import { select } from 'd3-selection'
 
 
 const data = [
-  {width: 200, height: 100, fill: 'purple'},
-  {width: 100, height: 60, fill: 'pink'},
-  {width: 50, height: 30, fill: 'red'}
+  { data: 200, fill: 'purple'},
+  { data: 60, fill: 'pink'},
+  { data: 30, fill: 'red'},
+  { data: 150, fill: 'blue'},
+  { data: 98, fill: 'green'}
 ];
 
 class App extends Component {
@@ -22,9 +24,10 @@ class App extends Component {
 
     const rects = svg.selectAll('rect')
     .data(data)
-    .attr('width', d => d.width)
-    .attr('height', d => d.height)
+    .attr('width', 50)
+    .attr('height', d => d.data)
     .attr('fill', d => d.fill)
+    .attr('x', (d, i) => i * 70)
     .attr('testing', (d,i,n) => {
       //where d is refers to the data parameter 
       //where i is refers to the position that the current array element is in
