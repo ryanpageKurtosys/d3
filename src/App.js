@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import * as d3 from "d3";
 
-
-import { select } from 'd3-selection'
-
-
 const data = [
   { data: 200, fill: 'purple'},
   { data: 60, fill: 'pink'},
