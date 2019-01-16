@@ -42,17 +42,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="pink darken-1 section">
-            <h2 className="center white-text">D3 Example 2</h2>
+        <header className="green darken-1 section">
+            <h2 className="center white-text">D3 Example 3</h2>
             <p className="flow-text grey-text center text-lighten-2"></p>
        </header>
-       <svg ref={node => this.node = node}>
-       {/*this is not practical*/}
-          <rect></rect>
-          <rect></rect>
-          <rect></rect>
-       {/*this is not practical*/}
-       </svg>
+       <div className="row">
+        <div className="col m3 offset-m5" style={{marginTop:100}}>
+          <svg ref={node => this.node = node}>
+          {/*this is not practical*/}
+              <rect></rect>
+              <rect></rect>
+              <rect></rect>
+          {/*this is not practical*/}
+          </svg>
+        </div>
+       </div>
+       
       </div>
     );
   }
