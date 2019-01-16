@@ -58,7 +58,11 @@ class App extends Component {
             <h2 class="center white-text">D3 Example 2</h2>
             <p class="flow-text grey-text center text-lighten-2"></p>
        </header>
-       <svg ref={node => this.node = node}/>
+       <div className="row">
+        <div className="col m3 offset-m5">
+         <svg ref={node => this.node = node}/>
+        </div>
+        </div>
       </div>
     );
   }
